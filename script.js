@@ -6,29 +6,34 @@
 
 function calcular() {
 
-    var adult = parseFloat(document.getElementById("adultos").value);
-    var cri = parseFloat(document.getElementById("crianças").value);
-    var time = parseFloat(document.getElementById("duração").value);
+    var adult = document.getElementById("adultos").value;
+    var cri = document.getElementById("crianças").value;
+    var time = document.getElementById("duração").value;
 
-    var qtdCarne = horaschurrasco(time) * adult + (horaschurrasco(time) / 2 * cri);
-    var qtdCerveja = horaCerveja(time) * adult;
-    var qtdRefrigerante = horaRefrigerante(time) * adult + (horaRefrigerante(time) / 2 * cri);
+    if (adult == "" || cri == "" || time == "") {
+        var vaz = document.getElementById("vazio");
+        vaz.innerHTML = "Todos os campos são necessarios";
+    } else {
+        adult = parseFloat(adult);
+        cri = parseFloat(cri);
+        time = parseFloat(time);
 
-    // if(document.getElementById("adultos") == " " ||cri == "" || time == ""){
-    //     var vaz = document.getElementById("vazio");
-    //     vaz.innerHTML = "Preencha todos os campos";
-    // }else{
-    //     var inputAdult = document.getElementById("carne");
-    //     inputAdult.innerHTML = qtdCarne + "grama de carne";
-    //     console.log("teste");
-    // }
-    
-    var inputAdult = document.getElementById("carne");
-    inputAdult.innerHTML = qtdCarne / 1000 + " KG de carne";
-    var inpultCri = document.getElementById("cerveja");
-    inpultCri.innerHTML = Math.ceil(qtdCerveja /355) + " Latas de cerveja";
-    var inputTime = document.getElementById("bebida");
-    inputTime.innerHTML = Math.ceil(qtdRefrigerante /2000) + " ml de bebida";
+        var qtdCarne = horaschurrasco(time) * adult + (horaschurrasco(time) / 2 * cri);
+        var qtdCerveja = horaCerveja(time) * adult;
+        var qtdRefrigerante = horaRefrigerante(time) * adult + (horaRefrigerante(time) / 2 * cri);
+        
+        var inputAdult = document.getElementById("carne");
+        inputAdult.innerHTML = qtdCarne / 1000 + " KG de carne";
+
+        var inpultCri = document.getElementById("cerveja");
+        inpultCri.innerHTML = Math.ceil(qtdCerveja / 355) + " Latas de cerveja";
+
+        var inputTime = document.getElementById("bebida");
+        inputTime.innerHTML = Math.ceil(qtdRefrigerante / 2000) + " ml de bebida";
+
+
+
+    }
 
 
 }
