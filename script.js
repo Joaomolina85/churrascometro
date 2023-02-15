@@ -14,6 +14,8 @@ function calcular() {
         var vaz = document.getElementById("vazio");
         vaz.innerHTML = "Todos os campos são necessarios";
     } else {
+        vaz = document.getElementById("vazio");
+        vaz.innerHTML = "";
         adult = parseFloat(adult);
         cri = parseFloat(cri);
         time = parseFloat(time);
